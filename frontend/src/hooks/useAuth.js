@@ -1,4 +1,4 @@
-// src/hooks/useAuth.js - Auth Hook Utilities
+// src/hooks/useAuth.js
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 

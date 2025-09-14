@@ -1,12 +1,11 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
-
 //create function inviteUser 
 const inviteUser = async (req, res) => {
     try {
         //get the email and role from req.body
-        const {email, role = number} = req.body;
+        const {email, role = "member"} = req.body;
 
         console.log("User invitation attempt by admin:", req.userId);
         console.log("Inviting email:", email, "with role:", role);
@@ -76,7 +75,6 @@ const inviteUser = async (req, res) => {
     }
 }
 
-
 const getTenantUsers = async (req, res) => {
   try {
     const adminUser = await User.findById(req.userId).populate("tenantId");
@@ -109,7 +107,6 @@ const getTenantUsers = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-
 
 module.exports = {
     inviteUser,
